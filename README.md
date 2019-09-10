@@ -1,8 +1,8 @@
 # ASGCN
 
 **ASGCN** - **A**spect-**S**pecific **G**raph **C**onvolutional **N**etwork
-* Code and preprocessed dataset for [EMNLP 2019](https://www.emnlp-ijcnlp2019.org/program/accepted/) paper titled "[Aspect-based Sentiment Classification with Aspect-specific Graph Convolutional Networks](https://dl.acm.org/citation.cfm?id=3331351)" 
-* [Chen Zhang](https://genezc.github.io), [Qiuchi Li](https://qiuchili.github.io) and Dawei Song.
+* Code and preprocessed dataset for [EMNLP 2019](https://www.emnlp-ijcnlp2019.org/program/accepted/) paper titled "[Aspect-based Sentiment Classification with Aspect-specific Graph Convolutional Networks](https://arxiv.org/abs/1909.03477)" 
+* [Chen Zhang](https://genezc.github.io), [Qiuchi Li](https://qiuchili.github.io) and [Dawei Song](http://cs.bit.edu.cn/szdw/jsml/js/sdw/index.htm).
 
 ## Requirements
 
