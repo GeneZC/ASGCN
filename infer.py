@@ -11,8 +11,6 @@ from bucket_iterator import BucketIterator
 from models import LSTM, ASGCN, ASCNN
 from dependency_graph import dependency_adj_matrix
 
-p_dict = {}
-t_dict = {}
 
 class Inferer:
     """A simple inference example"""
