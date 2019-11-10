@@ -41,13 +41,17 @@ An overview of our proposed model is given below
 If you use the code in your paper, please kindly star this repo and cite our paper
 
 ```bibtex
-@inproceedings{Zhang,
- author = {Zhang, Chen and Li, Qiuchi and Song, Dawei},
- title = {Aspect-based Sentiment Classification with Aspect-specific Graph Convolutional Networks},
- series = {EMNLP'19},
- year = {2019},
- publisher = {ACL},
-}
+@inproceedings{zhang-etal-2019-aspect, 
+    title = "Aspect-based Sentiment Classification with Aspect-specific Graph Convolutional Networks", 
+    author = "Zhang, Chen and Li, Qiuchi and Song, Dawei", 
+    booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)", 
+    month = nov, year = "2019", 
+    address = "Hong Kong, China", 
+    publisher = "Association for Computational Linguistics", 
+    url = "https://www.aclweb.org/anthology/D19-1464", 
+    doi = "10.18653/v1/D19-1464", 
+    pages = "4560--4570",
+} 
 ```
 
 ## Credits
