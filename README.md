@@ -21,6 +21,10 @@ and
 ```bash
 python -m spacy download en
 ```
+* Generate graph data with
+```bash
+python dependency_graph.py
+```
 * Download pretrained GloVe embeddings with this [link](http://nlp.stanford.edu/data/wordvecs/glove.840B.300d.zip) and extract `glove.840B.300d.txt` into `glove/`.
 * Train with command, optional arguments could be found in [train.py](/train.py)
 ```bash
