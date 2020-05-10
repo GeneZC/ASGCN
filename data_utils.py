@@ -13,7 +13,7 @@ def load_word_vec(path, word2idx=None):
             try:
                 word_vec[tokens[0]] = np.asarray(tokens[1:], dtype='float32')
             except:
-                continue
+                print('WARNING: corrupted word vector of {} when being loaded from GloVe.'.format(tokens[0]))
     return word_vec
 
 

@@ -4,6 +4,10 @@
 * Code and preprocessed dataset for [EMNLP 2019](https://www.emnlp-ijcnlp2019.org/program/accepted/) paper titled "[Aspect-based Sentiment Classification with Aspect-specific Graph Convolutional Networks](https://arxiv.org/abs/1909.03477)" 
 * [Chen Zhang](https://genezc.github.io), [Qiuchi Li](https://qiuchili.github.io) and [Dawei Song](http://cs.bit.edu.cn/szdw/jsml/js/sdw/index.htm).
 
+## Updates
+
+* 10/5/2020: Many of you may be faced with [reproducibility issue](https://github.com/GeneZC/ASGCN/issues/2) owing to corrupted word vectors when downloading (i.e., glove.840B.300d.txt is generally too large). Thus, we have released [trimmed version](/300_rest14_embedding_matrix.pkl) of word embeddings on rest14 dataset as a pickled file along with [vocabulary](/rest14_word2idx.pkl) for you to verify the reproducibility. Additionally, we have added a warning in the code when corrupted word vectors are detected.
+
 ## Requirements
 
 * Python 3.6
