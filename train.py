@@ -128,8 +128,6 @@ class Instructor:
     def run(self, repeats=3):
         # Loss and Optimizer
         criterion = nn.CrossEntropyLoss()
-        _params = filter(lambda p: p.requires_grad, self.model.parameters())
-        optimizer = self.opt.optimizer(_params, lr=self.opt.learning_rate, weight_decay=self.opt.l2reg)
         
         if not os.path.exists('log/'):
             os.mkdir('log/')
@@ -142,6 +140,8 @@ class Instructor:
             print('repeat: ', (i+1))
             f_out.write('repeat: '+str(i+1))
             self._reset_params()
+            _params = filter(lambda p: p.requires_grad, self.model.parameters())
+            optimizer = self.opt.optimizer(_params, lr=self.opt.learning_rate, weight_decay=self.opt.l2reg)
             max_test_acc, max_test_f1 = self._train(criterion, optimizer)
             print('max_test_acc: {0}     max_test_f1: {1}'.format(max_test_acc, max_test_f1))
             f_out.write('max_test_acc: {0}, max_test_f1: {1}'.format(max_test_acc, max_test_f1))
