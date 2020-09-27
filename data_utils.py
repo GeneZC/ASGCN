@@ -4,16 +4,14 @@ import os
 import pickle
 import numpy as np
 
-def load_word_vec(path, word2idx=None):
+def load_word_vec(path, word2idx=None, embed_dim=300):
     fin = open(path, 'r', encoding='utf-8', newline='\n', errors='ignore')
     word_vec = {}
     for line in fin:
         tokens = line.rstrip().split()
-        if word2idx is None or tokens[0] in word2idx.keys():
-            try:
-                word_vec[tokens[0]] = np.asarray(tokens[1:], dtype='float32')
-            except:
-                print('WARNING: corrupted word vector of {} when being loaded from GloVe.'.format(tokens[0]))
+        word, vec = ' '.join(tokens[:-embed_dim]), tokens[-embed_dim:]
+        if word in word2idx.keys():
+            word_vec[word] = np.asarray(vec, dtype='float32')
     return word_vec
 
 
@@ -27,7 +25,7 @@ def build_embedding_matrix(word2idx, embed_dim, type):
         embedding_matrix = np.zeros((len(word2idx), embed_dim))  # idx 0 and 1 are all-zeros
         embedding_matrix[1, :] = np.random.uniform(-1/np.sqrt(embed_dim), 1/np.sqrt(embed_dim), (1, embed_dim))
         fname = './glove/glove.840B.300d.txt'
-        word_vec = load_word_vec(fname, word2idx=word2idx)
+        word_vec = load_word_vec(fname, word2idx=word2idx, embed_dim=embed_dim)
         print('building embedding_matrix:', embedding_matrix_file_name)
         for word, i in word2idx.items():
             vec = word_vec.get(word)

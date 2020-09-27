@@ -17,7 +17,7 @@ class Instructor:
         self.opt = opt
 
         absa_dataset = ABSADatesetReader(dataset=opt.dataset, embed_dim=opt.embed_dim)
-        
+
         self.train_data_loader = BucketIterator(data=absa_dataset.train_data, batch_size=opt.batch_size, shuffle=True)
         self.test_data_loader = BucketIterator(data=absa_dataset.test_data, batch_size=opt.batch_size, shuffle=False)
 
@@ -188,7 +188,7 @@ if __name__ == '__main__':
     }
     initializers = {
         'xavier_uniform_': torch.nn.init.xavier_uniform_,
-        'xavier_normal_': torch.nn.init.xavier_normal,
+        'xavier_normal_': torch.nn.init.xavier_normal_,
         'orthogonal_': torch.nn.init.orthogonal_,
     }
     optimizers = {

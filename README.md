@@ -6,7 +6,7 @@
 
 ## Updates
 
-* 10/5/2020: Many of you may be faced with [reproducibility issue](https://github.com/GeneZC/ASGCN/issues/2) owing to corrupted word vectors when downloading (i.e., glove.840B.300d.txt is generally too large). Thus, we have released [trimmed version](/300_rest14_embedding_matrix.pkl) of word embeddings on rest14 dataset as a pickled file along with [vocabulary](/rest14_word2idx.pkl) for you to verify the reproducibility. Additionally, we have added a warning in the code when corrupted word vectors are detected.
+* 10/5/2020: Many of you may be faced with [reproducibility issue](https://github.com/GeneZC/ASGCN/issues/2) owing to corrupted word vectors when downloading (i.e., glove.840B.300d.txt is generally too large). Thus, we have released [trimmed version](/300_rest14_embedding_matrix.pkl) of word embeddings on rest14 dataset as a pickled file along with [vocabulary](/rest14_word2idx.pkl) for you to verify the reproducibility.
 
 ## Requirements
 
