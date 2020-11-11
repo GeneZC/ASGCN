@@ -31,11 +31,12 @@ class BucketIterator(object):
         batch_left_indices = []
         batch_polarity = []
         batch_dependency_graph = []
+        batch_dependency_tree = []
         max_len = max([len(t[self.sort_key]) for t in batch_data])
         for item in batch_data:
-            text_indices, context_indices, aspect_indices, left_indices, polarity, dependency_graph = \
+            text_indices, context_indices, aspect_indices, left_indices, polarity, dependency_graph, dependency_tree = \
                 item['text_indices'], item['context_indices'], item['aspect_indices'], item['left_indices'],\
-                item['polarity'], item['dependency_graph']
+                item['polarity'], item['dependency_graph'], item['dependency_tree']
             text_padding = [0] * (max_len - len(text_indices))
             context_padding = [0] * (max_len - len(context_indices))
             aspect_padding = [0] * (max_len - len(aspect_indices))
@@ -47,13 +48,16 @@ class BucketIterator(object):
             batch_polarity.append(polarity)
             batch_dependency_graph.append(numpy.pad(dependency_graph, \
                 ((0,max_len-len(text_indices)),(0,max_len-len(text_indices))), 'constant'))
+            batch_dependency_tree.append(numpy.pad(dependency_tree, \
+                ((0,max_len-len(text_indices)),(0,max_len-len(text_indices))), 'constant'))
         return { \
                 'text_indices': torch.tensor(batch_text_indices), \
                 'context_indices': torch.tensor(batch_context_indices), \
                 'aspect_indices': torch.tensor(batch_aspect_indices), \
                 'left_indices': torch.tensor(batch_left_indices), \
                 'polarity': torch.tensor(batch_polarity), \
-                'dependency_graph': torch.tensor(batch_dependency_graph)
+                'dependency_graph': torch.tensor(batch_dependency_graph), \
+                'dependency_tree': torch.tensor(batch_dependency_tree), \
             }
 
     def __iter__(self):

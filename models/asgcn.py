@@ -57,7 +57,7 @@ class ASGCN(nn.Module):
                 weight[i].append(1-(j-aspect_double_idx[i,1])/context_len)
             for j in range(text_len[i], seq_len):
                 weight[i].append(0)
-        weight = torch.tensor(weight).unsqueeze(2).to(self.opt.device)
+        weight = torch.tensor(weight, dtyep=torch.float).unsqueeze(2).to(self.opt.device)
         return weight*x
 
     def mask(self, x, aspect_double_idx):
@@ -71,7 +71,7 @@ class ASGCN(nn.Module):
                 mask[i].append(1)
             for j in range(aspect_double_idx[i,1]+1, seq_len):
                 mask[i].append(0)
-        mask = torch.tensor(mask).unsqueeze(2).float().to(self.opt.device)
+        mask = torch.tensor(mask, dtyep=torch.float).unsqueeze(2).to(self.opt.device)
         return mask*x
 
     def forward(self, inputs):

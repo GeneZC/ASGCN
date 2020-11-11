@@ -10,7 +10,7 @@ import torch.nn as nn
 from bucket_iterator import BucketIterator
 from sklearn import metrics
 from data_utils import ABSADatesetReader
-from models import LSTM, ASCNN, ASGCN
+from models import LSTM, ASCNN, ASGCN, ASTCN
 
 class Instructor:
     def __init__(self, opt):
@@ -178,13 +178,13 @@ if __name__ == '__main__':
         'lstm': LSTM,
         'ascnn': ASCNN,
         'asgcn': ASGCN,
-        'astcn': ASGCN,
+        'astcn': ASTCN,
     }
     input_colses = {
         'lstm': ['text_indices'],
         'ascnn': ['text_indices', 'aspect_indices', 'left_indices'],
         'asgcn': ['text_indices', 'aspect_indices', 'left_indices', 'dependency_graph'],
-        'astcn': ['text_indices', 'aspect_indices', 'left_indices', 'dependency_graph'],
+        'astcn': ['text_indices', 'aspect_indices', 'left_indices', 'dependency_tree'],
     }
     initializers = {
         'xavier_uniform_': torch.nn.init.xavier_uniform_,
