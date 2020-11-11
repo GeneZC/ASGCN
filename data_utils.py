@@ -104,7 +104,7 @@ class ABSADatesetReader:
         lines = fin.readlines()
         fin.close()
         fin = open(fname+'.graph', 'rb')
-        idx2gragh = pickle.load(fin)
+        idx2graph = pickle.load(fin)
         fin.close()
         fin = open(fname+'.tree', 'rb')
         idx2tree = pickle.load(fin)
@@ -122,7 +122,7 @@ class ABSADatesetReader:
             aspect_indices = tokenizer.text_to_sequence(aspect)
             left_indices = tokenizer.text_to_sequence(text_left)
             polarity = int(polarity)+1
-            dependency_graph = idx2gragh[i]
+            dependency_graph = idx2graph[i]
             dependency_tree = idx2tree[i]
 
             data = {
