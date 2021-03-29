@@ -82,7 +82,7 @@ class ASGCN(nn.Module):
         aspect_double_idx = torch.cat([left_len.unsqueeze(1), (left_len+aspect_len-1).unsqueeze(1)], dim=1)
         text = self.embed(text_indices)
         text = self.text_embed_dropout(text)
-        text_out, (_, _) = self.text_lstm(text, text_len)
+        text_out, (_, _) = self.text_lstm(text, text_len.detach().cpu())
         x = F.relu(self.gc1(self.position_weight(text_out, aspect_double_idx, text_len, aspect_len), adj))
         x = F.relu(self.gc2(self.position_weight(x, aspect_double_idx, text_len, aspect_len), adj))
         x = self.mask(x, aspect_double_idx)
