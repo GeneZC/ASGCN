@@ -16,6 +16,6 @@ class LSTM(nn.Module):
         text_indices = inputs[0]
         x = self.embed(text_indices)
         x_len = torch.sum(text_indices != 0, dim=-1)
-        _, (h_n, _) = self.lstm(x, x_len)
+        _, (h_n, _) = self.lstm(x, x_len.detach().cpu())
         out = self.fc(h_n[0])
         return out

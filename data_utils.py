@@ -24,7 +24,7 @@ def build_embedding_matrix(word2idx, embed_dim, type):
         print('loading word vectors ...')
         embedding_matrix = np.zeros((len(word2idx), embed_dim))  # idx 0 and 1 are all-zeros
         embedding_matrix[1, :] = np.random.uniform(-1/np.sqrt(embed_dim), 1/np.sqrt(embed_dim), (1, embed_dim))
-        fname = './glove/glove.840B.300d.txt'
+        fname = 'glove.840B.300d.txt'
         word_vec = load_word_vec(fname, word2idx=word2idx, embed_dim=embed_dim)
         print('building embedding_matrix:', embedding_matrix_file_name)
         for word, i in word2idx.items():
